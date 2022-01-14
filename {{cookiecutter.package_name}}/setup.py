@@ -47,9 +47,6 @@ setup(
     packages=find_packages(exclude=('tests', 'tests_*',)),
 
     install_requires=REQUIREMENTS,
-{%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{ cookiecutter.open_source_license }}",
-{%- endif %}
     classifiers=[
         '{{ cookiecutter.development_status }}',
         'Programming Language :: Python',

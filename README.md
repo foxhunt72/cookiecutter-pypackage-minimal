@@ -12,3 +12,14 @@ Usage
     git clone https://github.com/foxhunt72/cookiecutter-pypackage-minimal.git
     cookiecutter cookiecutter-pypackage-minimal/
 
+or
+
+    pip install cookiecutter
+    cookiecutter gh:foxhunt72/cookiecutter-pypackage-minimal
+
+
+Todo
+----
+
+- check: https://github.com/pypa/sampleproject
+- check: https://www.pypa.io/en/latest/
