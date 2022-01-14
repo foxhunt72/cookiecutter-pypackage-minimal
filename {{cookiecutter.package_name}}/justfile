@@ -1,0 +1,13 @@
+#!/usr/bin/env just --justfile
+# ^ A shebang isn't required, but allows a justfile to be executed
+#   like a script, with `./justfile test`, for example.
+
+
+default:
+  @just -l
+
+setuptest directory="/tmp/venv":
+  #!/usr/bin/env sh
+  python -m venv "{{directory}}"
+  "{{directory}}/bin/pip3" install -e .
+  echo "use: source {{directory}}/bin/active to test with python"
