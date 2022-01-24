@@ -1,10 +1,12 @@
 {
     "author_name": "Richard de Vos",
     "author_email": "rdevos72@gmail.com",
-    "package_name": "package_name",
+    "author_github_name": "foxhunt72",
+    "project_name": "package_name",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "package_version": "0.1.0",
     "package_description": "my package discription",
-    "package_url": "https://github.com/foxhunt72/package_name",
+    "package_url": "https://github.com/{{ cookiecutter.author_github_name }}/{{ cookiecutter.package_name }}",
     "development_status": [
       "Development Status :: 1 - Planning",
       "Development Status :: 2 - Pre-Alpha",

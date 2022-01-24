@@ -6,6 +6,11 @@ from setuptools import find_packages
 from setuptools import setup
 
 
+about = {}
+here = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(here, '{{cookiecutter.project_slug}}', '__version__.py')) as f:
+    exec(f.read(), about)
+
 def read(filename):
     filename = os.path.join(os.path.dirname(__file__), filename)
     text_type = type(u"")
@@ -26,10 +31,10 @@ with open("./requirements.txt") as requirements:
 
 
 setup(
-    name="{{ cookiecutter.package_name }}",
-    version="{{ cookiecutter.package_version }}",
+    name="{{ cookiecutter.project_name }}",
+    version=about['__version__']
     url="{{ cookiecutter.package_url }}",
-    license='MIT',
+    license='{{ cookiecutter.open_source_license }}',
 
     author="{{ cookiecutter.author_name }}",
     author_email="{{ cookiecutter.author_email }}",
@@ -55,6 +60,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
 )
 
