@@ -8,7 +8,7 @@ from setuptools import setup
 
 about = {}
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, '{{cookiecutter.project_slug}}', '__version__.py')) as f:
+with open(os.path.join(here, '{{cookiecutter.package_name}}', '__version__.py')) as f:
     exec(f.read(), about)
 
 def read(filename):
