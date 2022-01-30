@@ -21,4 +21,10 @@ setuptest-dev directory="/tmp/venv":
   "{{directory}}/bin/pip3" install -r requirements-flake8.txt
   echo "use: source {{directory}}/bin/active to test with python"
 
+flake8:
+  @tox -e flake8
+
+coverage:
+  @tox -e coverage
+
 
