@@ -3,4 +3,6 @@ flake8-bugbear
 flake8-tidy-imports
 flake8-import-order
 flake8-black
+flake8-docstrings
+flake8-blind-except
 black==21.12b0
