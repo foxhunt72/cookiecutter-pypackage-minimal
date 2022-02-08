@@ -8,7 +8,7 @@ from setuptools import setup
 
 about = {}
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, '{{cookiecutter.package_name}}', '__version__.py')) as f:
+with open(os.path.join(here, 'src', '{{cookiecutter.package_name}}', '__version__.py')) as f:
     exec(f.read(), about)
 
 
@@ -43,17 +43,19 @@ setup(
     {%- if 'no' not in cookiecutter.command_line_interface|lower %}
     entry_points={
         "console_scripts": [
-            "{{ cookiecutter.package_name }}={{ cookiecutter.package_name }}.cli:main",
+            "{{ cookiecutter.project_name }}={{ cookiecutter.package_name }}.cli:main",
         ],
     },
     {%- endif %}
 
     packages=find_packages(
+        where="src",
         exclude=(
             "tests",
             "tests_*",
         )
     ),
+    package_dir={"": "src"},
     install_requires=REQUIREMENTS,
     classifiers=[
         "{{ cookiecutter.development_status }}",

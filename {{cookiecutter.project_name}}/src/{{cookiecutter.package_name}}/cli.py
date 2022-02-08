@@ -8,8 +8,12 @@ import sys
 
 import click
 {%- endif %}
+{%- if cookiecutter.command_line_interface|lower == 'typer' %}
 
-{% if cookiecutter.command_line_interface|lower == 'click' %}
+import typer
+{%- endif %}
+
+{%- if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
 def main(args=None):
     """Console script for {{cookiecutter.package_name}}."""
@@ -30,6 +34,26 @@ def main(args_default=None):
     print("Arguments: " + str(args._))
     print("Replace this message by putting your code into "
           "{{cookiecutter.package_name}}.cli.main")
+    return 0
+{%- endif %}
+{%- if cookiecutter.command_line_interface|lower == 'typer' %}
+main = typer.Typer()
+
+@main.command()
+def run(
+        args_default: str = typer.Argument(..., help="Extra help")
+):
+    """Console script for {{cookiecutter.package_name}}."""
+    print(
+        "Replace this message by putting your code into "
+        "{{cookiecutter.package_name}}.cli.ryb"
+    )
+    typer.secho(f"Some text!", fg = typer.colors.WHITE, bg = typer.colors.RED)
+
+    import time
+    with typer.progressbar(["1", "2", "3"]) as progress:
+        for test in progress:
+             time.sleep(1)
     return 0
 {%- endif %}
 
