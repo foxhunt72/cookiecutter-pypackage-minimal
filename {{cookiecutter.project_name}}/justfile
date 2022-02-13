@@ -21,10 +21,29 @@ setuptest-dev directory="/tmp/venv":
   "{{directory}}/bin/pip3" install -r requirements-flake8.txt
   echo "use: source {{directory}}/bin/active to test with python"
 
+githook:
+  #!/usr/bin/env sh
+  echo -e "#\!/bin/bash\n\ntox -e flake8" >.git/hooks/pre-commit
+  chmod a+x .git/hooks/pre-commit
+
 flake8:
   @tox -e flake8
 
 coverage:
   @tox -e coverage
 
+build:
+  #!/usr/bin/env sh
+  export PKG_NAME="$(python setup.py --name)"
+  export PKG_VERSION="$(python setup.py --version)"
+  export PKG_FILE="dist/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+  echo ">>$PKG_FILE<<"
+  if test -f "$PKG_FILE"; then
+   echo "$PKG_FILE allready exists..."
+   exit 1
+  fi
+
+  echo "continue"
+  tox -p
+  python setup.py sdist
 
