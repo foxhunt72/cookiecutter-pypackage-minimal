@@ -44,6 +44,10 @@ build:
   fi
 
   echo "continue"
-  tox -p
+  if ! tox -p; then
+    echo "tox error."
+    exit 1
+  fi
+
   python setup.py sdist
 
