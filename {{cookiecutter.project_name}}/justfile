@@ -32,6 +32,11 @@ flake8:
 coverage:
   @tox -e coverage
 
+# clean some work directories
+clean:
+  rm -rf .tox
+
+# build python package
 build:
   #!/usr/bin/env sh
   export PKG_NAME="$(python setup.py --name)"

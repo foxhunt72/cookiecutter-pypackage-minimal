@@ -6,3 +6,8 @@ flake8-black
 flake8-docstrings
 flake8-blind-except
 black==21.12b0
+dlint
+flake8-bandit
+flake8-simplify
+darglint
+
