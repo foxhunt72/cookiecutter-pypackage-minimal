@@ -6,7 +6,7 @@
     "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "package_version": "0.1.0",
     "package_description": "my package discription",
-    "package_url": "https://github.com/{{ cookiecutter.author_github_name }}/{{ cookiecutter.package_name }}",
+    "package_url": "https://github.com/{{ cookiecutter.author_github_name }}/{{ cookiecutter.project_name }}",
     "development_status": [
       "Development Status :: 1 - Planning",
       "Development Status :: 2 - Pre-Alpha",

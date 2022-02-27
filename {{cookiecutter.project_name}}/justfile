@@ -23,7 +23,7 @@ setuptest-dev directory="/tmp/venv":
 
 githook:
   #!/usr/bin/env sh
-  echo -e "#\!/bin/bash\n\ntox -e flake8" >.git/hooks/pre-commit
+  echo -e "#\!/bin/bash\n\ntox\ntox -e flake8" >.git/hooks/pre-commit
   chmod a+x .git/hooks/pre-commit
 
 flake8:
@@ -55,4 +55,7 @@ build:
   fi
 
   python setup.py sdist
+
+pytest-failure:
+  tox -e py310 -- --lf --trace
 
