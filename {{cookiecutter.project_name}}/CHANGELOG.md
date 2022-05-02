@@ -5,4 +5,4 @@
 {{ cookiecutter.project_name }}
 
 --------------------------------------------------------------
-{{ cookiecutter.package_version }}: initial creation
+### {{ cookiecutter.package_version }}: initial creation
