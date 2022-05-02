@@ -42,6 +42,11 @@ build:
   export PKG_NAME="$(python setup.py --name)"
   export PKG_VERSION="$(python setup.py --version)"
   export PKG_FILE="dist/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+  if ! grep "^### ${PKG_VERSION}:" "CHANGELOG.md"; then
+    echo "Missing: ### ${PKG_VERSION}: in CHANGELOG.md"
+    exit 1
+  fi
+
   echo ">>$PKG_FILE<<"
   if test -f "$PKG_FILE"; then
    echo "$PKG_FILE allready exists..."
@@ -67,4 +72,9 @@ publish:
 
 pytest-failure:
   tox -e py310 -- --lf --trace
+
+# bump version number
+bumppatch:
+  #!/usr/bin/env sh
+  bumpversion --verbose patch
 
