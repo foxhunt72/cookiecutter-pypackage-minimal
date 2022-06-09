@@ -9,12 +9,18 @@ Usage
 -----
 
     pip install cookiecutter
+    or
+    pipx install cookiecutter
+
     git clone https://github.com/foxhunt72/cookiecutter-pypackage-minimal.git
     cookiecutter cookiecutter-pypackage-minimal/
 
 or
 
     pip install cookiecutter
+    or
+    pipx install cookiecutter
+
     cookiecutter gh:foxhunt72/cookiecutter-pypackage-minimal
 
 

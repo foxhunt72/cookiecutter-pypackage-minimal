@@ -47,7 +47,7 @@ build:
     exit 1
   fi
 
-  # if the package allready exists then juist stop
+  # if the package allready exists then just stop
   echo ">>$PKG_FILE<<"
   if test -f "$PKG_FILE"; then
    echo "$PKG_FILE allready exists..."
