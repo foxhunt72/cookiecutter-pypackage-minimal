@@ -21,16 +21,25 @@ setuptest-dev directory="/tmp/venv":
   "{{directory}}/bin/pip3" install -r requirements-flake8.txt
   echo "use: source {{directory}}/bin/active to test with python"
 
-githook:
+githook-tox:
   #!/usr/bin/env sh
   echo -e "#\!/bin/bash\n\ntox\ntox -e flake8" >.git/hooks/pre-commit
   chmod a+x .git/hooks/pre-commit
+
+githook-commit:
+  #!/usr/bin/env sh
+  cp .githooks/prepare-commit-msg .git/hooks/
 
 flake8:
   @tox -e flake8
 
 coverage:
-  @tox -e coverage
+  #@tox -e coverage
+  "coverage" run --source=src -m pytest tests
+  "coverage" report --show-missing
+  "coverage" xml -o coverage.xml
+
+
 
 # clean some work directories
 clean:
@@ -86,4 +95,9 @@ pytest-failure:
 bumppatch:
   #!/usr/bin/env sh
   bumpversion --allow-dirty --verbose patch
+
+# edit README.rst
+readme:
+  #!/usr/bin/env sh
+  formiko README.rst
 
