@@ -39,7 +39,8 @@ setup(
     author="{{ cookiecutter.author_name }}",
     author_email="{{ cookiecutter.author_email }}",
     description="{{ cookiecutter.package_description }}",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
+    long_description_content_type='text/markdown',
     {%- if 'no' not in cookiecutter.command_line_interface|lower %}
     entry_points={
         "console_scripts": [
