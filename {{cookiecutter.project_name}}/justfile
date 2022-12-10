@@ -107,5 +107,5 @@ bumppatch:
 # edit README.rst
 readme:
   #!/usr/bin/env sh
-  formiko README.rst
+  remarkable README.md
 
