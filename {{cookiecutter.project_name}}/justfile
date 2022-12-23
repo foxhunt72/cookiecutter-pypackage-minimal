@@ -112,3 +112,8 @@ readme:
   #!/usr/bin/env sh
   remarkable README.md
 
+# show git changes
+git_diff:
+  #!/usr/bin/env sh
+  git diff | dunk | less -R
+
