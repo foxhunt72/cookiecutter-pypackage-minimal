@@ -1,4 +1,4 @@
-"""Load config."""
+"""Read config."""
 
 import os
 import sys
