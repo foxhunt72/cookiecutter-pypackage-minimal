@@ -1,5 +1,5 @@
 make by cookiecutter
 template: cookiecutter-pypackage-minimal
-version: 0.73 2022-12-10
+version: 0.74 2023-04-23
 usage: cookiecutter gh:foxhunt72/cookiecutter-pypackage-minimal
 
